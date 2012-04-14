@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.tse.lt2c.satin</groupId>
+	<artifactId>Croquette</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Croquette</name>
+
+<repositories>
+	  
+	  <repository>
+	  	<id>central</id>
+	  	<name>Central repo</name>
+	  	<url>http://repo1.maven.org/maven2/</url>
+	  </repository>
+	  
+		<repository>
+			<id>aduna</id>
+			<name>Aduna Software</name>
+			<url>http://repo.aduna-software.org/maven2/releases/</url>
+		</repository>
+
+		<!-- <repository>
+			<id>satin-releases</id>
+			<name>Satin Releases</name>
+			<url>http://192.168.8.135:8081/artifactory/satin-release/</url>
+		</repository>-->
+
+	</repositories>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.openrdf.sesame</groupId>
+			<artifactId>sesame-runtime</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.clarkparsia</groupId>
+			<artifactId>Empire-core</artifactId>
+			<version>0.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.clarkparsia</groupId>
+			<artifactId>Empire-sesame2</artifactId>
+			<version>0.7</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>com.clarkparsia</groupId>
+			<artifactId>Empire-reflections</artifactId>
+			<version>0.7</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.clarkparsia</groupId>
+			<artifactId>Empire-jena</artifactId>
+			<version>0.7</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>attached</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+							<archive>
+								<manifest>
+									<mainClass></mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>satin-releases</id>
+			<name>satin-releases</name>
+			<url>http://192.168.8.135:8081/artifactory/satin-release</url>
+		</repository>
+		<snapshotRepository>
+			<id>satin-releases</id>
+			<name>satin-releases</name>
+			<url>http://192.168.8.135:8081/artifactory/satin-release</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+</project>
